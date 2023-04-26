@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import useAuthContext from './hooks/useAuthContext'
+import CityDetailPage from './pages/CityDetailPage'
 
 export default function App (): JSX.Element {
   const { authState } = useAuthContext()
@@ -24,6 +25,7 @@ export default function App (): JSX.Element {
           <Route path='/login' element={userLogged ? <Navigate to='/' /> : <Login />} />
           <Route path='/signUp' element={userLogged ? <Navigate to='/' /> : <SignUp />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/city/:id' element={userLogged ? <CityDetailPage /> : <Navigate to='/login' />} />
         </Routes>
       </main>
     </BrowserRouter>
