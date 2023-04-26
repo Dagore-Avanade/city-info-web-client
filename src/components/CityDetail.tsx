@@ -1,4 +1,5 @@
 import useCityDetails from '../hooks/useCityDetails'
+import PointOfInterest from './PointOfInterest'
 
 interface Props {
   cityId: number
@@ -17,11 +18,11 @@ export default function CityDetail (props: Props): JSX.Element {
 
   return (
     <div>
-      <h2 className='text-2xl py-2'>{city?.name}</h2>
+      <h2 className='text-2xl font-bold py-2'>{city?.name}</h2>
       <p>{city?.description}</p>
       <br />
       <ul>
-        {city?.pointsOfInterest?.map(pointOfInterest => <li key={crypto.randomUUID()}>{pointOfInterest.name} - {pointOfInterest?.description}</li>)}
+        {city?.pointsOfInterest?.map(pointOfInterest => <PointOfInterest key={crypto.randomUUID()} pointOfInterest={pointOfInterest} />)}
       </ul>
     </div>
   )
