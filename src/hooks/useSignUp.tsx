@@ -21,9 +21,10 @@ export default function useSignUp (): { signUp: (username: string, password: str
         response.json()
           .then(data => {
             if (response.ok) {
+              localStorage.setItem('user', JSON.stringify(data))
               authDispatch({ type: 'LOGIN', payload: data })
             } else {
-              setError(data.error)
+              setError(data.title)
             }
           })
           .catch(error => setError(error))

@@ -9,10 +9,15 @@ export default function LogoutBtn (props: Props): JSX.Element {
 
   return (
     <button
-      onClick={() => authDispatch({ type: 'LOGOUT', payload: null })}
+      onClick={handleLogout}
       className={classes}
     >
       Cerrar sesión
     </button>
   )
+
+  function handleLogout (): void {
+    localStorage.removeItem('user')
+    authDispatch({ type: 'LOGOUT', payload: null })
+  }
 }

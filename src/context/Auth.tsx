@@ -1,6 +1,7 @@
-import { Dispatch, ReactNode, createContext, useReducer } from 'react'
+import { Dispatch, ReactNode, createContext, useEffect, useReducer } from 'react'
 import ICurrentUser from '../interfaces/ICurrentUser'
 import IAuthAction from '../interfaces/IAuthAction'
+import IUser from '../interfaces/IUser'
 
 export const AuthContext = createContext<null | { state: ICurrentUser, dispatch: Dispatch<IAuthAction> }>(null)
 
@@ -10,6 +11,14 @@ export function AuthContextProvider (props: Props): JSX.Element {
   const [state, dispatch] = useReducer(authReducer, {
     user: null
   })
+
+  useEffect(() => {
+    const storedJSON = localStorage.getItem('user')
+    if (storedJSON != null) {
+      const user = JSON.parse(storedJSON) satisfies IUser as IUser
+      dispatch({ type: 'LOGIN', payload: user })
+    }
+  }, [])
 
   return (
     <AuthContext.Provider value={{ state, dispatch }}>

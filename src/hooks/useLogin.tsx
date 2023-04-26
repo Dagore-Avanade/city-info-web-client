@@ -22,10 +22,10 @@ export default function useLogin (): { login: (username: string, password: strin
         response.json()
           .then(data => {
             if (response.ok) {
-              console.log(data)
+              localStorage.setItem('user', JSON.stringify(data))
               authDispatch({ type: 'LOGIN', payload: data })
             } else {
-              setError(data.error)
+              setError(data.title)
             }
           })
           .catch(error => setError(error.message))
