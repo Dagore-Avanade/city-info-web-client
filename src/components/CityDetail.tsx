@@ -22,7 +22,7 @@ export default function CityDetail (props: Props): JSX.Element {
       <p>{city?.description}</p>
       <br />
       <ul>
-        {city?.pointsOfInterest?.map(pointOfInterest => <PointOfInterest key={crypto.randomUUID()} pointOfInterest={pointOfInterest} />)}
+        {city?.pointsOfInterest?.map(pointOfInterest => <PointOfInterest key={crypto.randomUUID()} pointOfInterest={pointOfInterest} cityId={cityId} />)}
       </ul>
     </div>
   )
