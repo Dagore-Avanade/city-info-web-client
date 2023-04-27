@@ -13,6 +13,7 @@ import useAuthContext from './hooks/useAuthContext'
 import CityDetailPage from './pages/CityDetailPage'
 import NewPointOfInterest from './pages/NewPointOfInterest'
 import NewCity from './pages/NewCity'
+import UpdatePointOfInterest from './pages/UpdatePointOfInterest'
 
 export default function App (): JSX.Element {
   const { authState } = useAuthContext()
@@ -29,6 +30,7 @@ export default function App (): JSX.Element {
           <Route path='/contact' element={<Contact />} />
           <Route path='/newCity' element={userLogged ? <NewCity /> : <Navigate to='/login' />} />
           <Route path='/newPointOfInterest' element={userLogged ? <NewPointOfInterest /> : <Navigate to='/login' />} />
+          <Route path='/updatePointOfInterest' element={userLogged ? <UpdatePointOfInterest /> : <Navigate to='/login' />} />
           <Route path='/city/:id' element={userLogged ? <CityDetailPage /> : <Navigate to='/login' />} />
         </Routes>
       </main>

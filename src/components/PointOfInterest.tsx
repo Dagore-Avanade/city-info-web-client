@@ -18,7 +18,7 @@ export default function PointOfInterest (props: Props): JSX.Element {
       <h3 className='font-bold'>{pointOfInterest.name}</h3>
       <div className='w-fit absolute right-0 top-0'>
         <ActionIcon icon='❌' handleClick={handleDelete} />
-        <ActionIcon icon='✏️' />
+        <ActionIcon icon='✏️' handleClick={handleUpdate} />
       </div>
       <p>{pointOfInterest?.description}</p>
     </li>
@@ -28,5 +28,10 @@ export default function PointOfInterest (props: Props): JSX.Element {
     deletePointOfInterest(cityId, pointOfInterest.id, authState.user?.token)
       .then(() => navigate(0))
       .catch(error => alert(error))
+  }
+
+  function handleUpdate (): void {
+    localStorage.setItem('toUpdate', JSON.stringify({ cityId, pointOfInterest }))
+    navigate('/updatePointOfInterest')
   }
 }
