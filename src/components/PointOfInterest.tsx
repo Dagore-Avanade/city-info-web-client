@@ -27,6 +27,6 @@ export default function PointOfInterest (props: Props): JSX.Element {
   function handleDelete (): void {
     deletePointOfInterest(cityId, pointOfInterest.id, authState.user?.token)
       .then(() => navigate(0))
-      .catch(error => console.log(error))
+      .catch(error => alert(error))
   }
 }

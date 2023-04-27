@@ -58,9 +58,34 @@ export const signUpFields: IFormField[] = [
   }
 ]
 
+export const newPointOfInterestFields: IFormField[] = [
+  {
+    labelText: 'Nombre',
+    labelFor: 'name',
+    id: 'name',
+    name: 'name',
+    type: 'text',
+    autoComplete: '',
+    isRequired: true,
+    placeholder: 'Nombre del punto de interés'
+  },
+  {
+    labelText: 'Descripción',
+    labelFor: 'description',
+    id: 'description',
+    name: 'description',
+    type: 'text',
+    autoComplete: '',
+    isRequired: true,
+    placeholder: 'Descripción'
+  }
+]
+
 export const loginFieldsKeys = getKeys(loginFields)
 
 export const signUpFieldsKeys = getKeys(signUpFields)
+
+export const newPointOfInterestFieldsKeys = getKeys(newPointOfInterestFields)
 
 function getKeys (fields: IFormField[]): { [key: string]: string } {
   return Object.fromEntries(fields.map(field => [field.id, '']))

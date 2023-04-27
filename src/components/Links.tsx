@@ -11,6 +11,8 @@ export default function Links (props: Props): JSX.Element {
 
   return (
     <>
+      <li><Link to='/newCity' className={classes}>Nueva ciudad</Link></li>
+      <li><Link to='/newPointOfInterest' className={classes}>Nuevo punto de interés</Link></li>
       <li><Link to='/contact' className={classes}>Contacto</Link></li>
       {
         authState.user == null
