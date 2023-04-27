@@ -35,7 +35,7 @@ export default function NewPointOfInterestForm (): JSX.Element {
             />)
         }
       </div>
-      <FormAction disabled={isLoading} text='Inicia sesión' />
+      <FormAction disabled={isLoading} text='Crear' />
       <p className='text-red-600'>{error}</p>
     </form>
   )
